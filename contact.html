@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact | TechNova – Premium Electronics Marketplace</title>
-  <meta name="description" content="Contact TechNova – Premium Electronics Marketplace for business information, working hours, and the Rewari, Haryana location.">
+  <title>Contact | TechNova </title>
+  <meta name="description" content="Contact TechNova - Premium Electronics Marketplace for business information, working hours, and the Rewari, Haryana location.">
   <meta name="keywords" content="Contact TechNova, support, business hours, location, electronics store">
   <meta name="author" content="TechNova">
   <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
@@ -13,6 +13,10 @@
   <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
+  <div class="page-loader" data-loader aria-label="Page loading">
+    <span class="loader-ring" aria-hidden="true"></span>
+  </div>
+
   <header class="site-header" data-component="site-header">
     <div class="container header__inner">
       <a class="brand" href="index.html" aria-label="TechNova home">
@@ -20,7 +24,13 @@
         <span class="brand__text">TechNova</span>
       </a>
 
-      <nav class="site-nav" aria-label="Primary navigation" data-component="primary-nav">
+      <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-controls="primary-navigation" aria-expanded="false" data-nav-toggle>
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="site-nav" id="primary-navigation" aria-label="Primary navigation" data-component="primary-nav">
         <ul class="nav__list">
           <li><a class="nav__link" href="index.html">Home</a></li>
           <li><a class="nav__link" href="products.html">Products</a></li>
@@ -30,6 +40,17 @@
       </nav>
 
       <div class="header__actions">
+        <button class="icon-button theme-toggle" type="button" aria-label="Switch to dark mode" title="Switch to dark mode" data-theme-toggle>
+          <span class="theme-toggle__icon" aria-hidden="true">
+            <svg class="theme-toggle__icon--moon" viewBox="0 0 24 24" fill="none">
+              <path d="M21 12.8A8.6 8.6 0 1 1 11.2 3a7 7 0 1 0 9.8 9.8Z" fill="currentColor"/>
+            </svg>
+            <svg class="theme-toggle__icon--sun" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="4" fill="currentColor"/>
+              <path d="M12 2.75v2.1M12 19.15v2.1M4.85 4.85l1.48 1.48M17.67 17.67l1.48 1.48M2.75 12h2.1M19.15 12h2.1M4.85 19.15l1.48-1.48M17.67 6.33l1.48-1.48" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </span>
+        </button>
         <a class="icon-button" href="#" aria-label="Cart placeholder" data-action="open-cart">
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path d="M6 6h15l-1.5 8.5a2 2 0 0 1-2 1.5H8.4a2 2 0 0 1-2-1.6L4.5 3.5H2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
@@ -45,7 +66,7 @@
   <main class="page-main">
     <section class="page-hero section section--tinted" data-section="contact-hero">
       <div class="container section-heading section-heading--center">
-        <span class="eyebrow">Contact TechNova – Premium Electronics Marketplace</span>
+        <span class="eyebrow">Contact TechNova - Premium Electronics Marketplace</span>
         <h1>We're ready to hear from you</h1>
         <p>Use the form below to prepare for future support and inquiry workflows, while the current experience remains purely static.</p>
       </div>
@@ -56,7 +77,7 @@
         <article class="content-card">
           <span class="eyebrow">Send a message</span>
           <h2>Contact form</h2>
-          <form class="contact-form" id="contact-form" data-form="contact">
+          <form class="contact-form" id="contact-form" data-form="contact" novalidate>
             <div class="form-grid">
               <div class="field">
                 <label for="contact-name">Name</label>
@@ -79,7 +100,8 @@
                 <textarea id="contact-message" name="message" rows="6" placeholder="Tell us about your question, product interest, or support need."></textarea>
               </div>
             </div>
-            <button class="btn btn--primary" type="button">Send Message</button>
+            <p class="form-message" data-form-message aria-live="polite"></p>
+            <button class="btn btn--primary" type="submit">Send Message</button>
           </form>
         </article>
 
@@ -97,9 +119,9 @@
 
           <article class="content-card">
             <span class="eyebrow">Business information</span>
-            <h2>TechNova – Premium Electronics Marketplace</h2>
+            <h2>TechNova - Premium Electronics Marketplace</h2>
             <ul class="info-list">
-              <li><strong>Address:</strong> Brass Market Area,<br>Rewari, Haryana – 123401</li>
+              <li><strong>Address:</strong> Brass Market Area,<br>Rewari, Haryana - 123401</li>
               <li><strong>Email:</strong> support@technova.in</li>
               <li><strong>Phone:</strong> +91 90123 45678</li>
             </ul>
@@ -137,7 +159,7 @@
           <span class="brand__mark" aria-hidden="true">T</span>
           <span class="brand__text">TechNova</span>
         </a>
-        <p>TechNova – Premium Electronics Marketplace</p>
+        <p>TechNova - Premium Electronics Marketplace</p>
       </div>
 
       <div>
@@ -164,7 +186,7 @@
         <h3>Contact</h3>
         <address>
           Brass Market Area,<br>
-          Rewari, Haryana – 123401<br>
+          Rewari, Haryana - 123401<br>
           <a href="tel:+919012345678">+91 90123 45678</a><br>
           <a href="mailto:support@technova.in">support@technova.in</a>
         </address>
@@ -181,5 +203,10 @@
       <p>&copy; 2026 TechNova. Built for the internship Task 1 UI foundation.</p>
     </div>
   </footer>
+
+  <button class="back-to-top" type="button" aria-label="Back to top" data-back-to-top>&uarr;</button>
+  <div class="toast-region" aria-live="polite" aria-atomic="true" data-toast-region></div>
+  <script type="module" src="js/main.js"></script>
+  <script type="module" src="js/validation.js"></script>
 </body>
 </html>

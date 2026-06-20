@@ -12,6 +12,7 @@ This project delivers a polished 4-page website for a smart electronics store:
 - `contact.html`
 
 The site is intentionally UI-only and uses only HTML5 and CSS3.
+Task 2 extends the UI with modular Vanilla JavaScript interactions.
 
 ## Folder Structure
 
@@ -25,6 +26,14 @@ technova/
 |   |-- variables.css
 |   |-- style.css
 |   `-- responsive.css
+|-- js/
+|   |-- main.js
+|   |-- slider.js
+|   |-- modal.js
+|   |-- validation.js
+|   |-- theme.js
+|   |-- navigation.js
+|   `-- counter.js
 |-- images/
 `-- README.md
 ```
@@ -41,11 +50,19 @@ technova/
 - Accessible semantic HTML and meaningful alt text
 - Mobile-first responsive design
 - CSS variables, grid, flexbox, hover states, and glassmorphism accents
+- Hamburger navigation for tablet and mobile
+- Persistent dark and light theme toggle
+- Home page hero slider with controls, dots, autoplay, hover pause, and swipe
+- Product quick view modal on the products page
+- Real-time contact form validation
+- About page animated counters
+- Back-to-top button, page loader, smooth scrolling, and toast notifications
 
 ## Tech Stack
 
 - HTML5
 - CSS3
+- Vanilla JavaScript (ES6 modules)
 
 ## Installation
 

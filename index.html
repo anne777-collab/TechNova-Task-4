@@ -13,6 +13,10 @@
   <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
+  <div class="page-loader" data-loader aria-label="Page loading">
+    <span class="loader-ring" aria-hidden="true"></span>
+  </div>
+
   <header class="site-header" data-component="site-header">
     <div class="container header__inner">
       <a class="brand" href="index.html" aria-label="TechNova home">
@@ -20,7 +24,13 @@
         <span class="brand__text">TechNova</span>
       </a>
 
-      <nav class="site-nav" aria-label="Primary navigation" data-component="primary-nav">
+      <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-controls="primary-navigation" aria-expanded="false" data-nav-toggle>
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="site-nav" id="primary-navigation" aria-label="Primary navigation" data-component="primary-nav">
         <ul class="nav__list">
           <li><a class="nav__link is-active" href="index.html" aria-current="page">Home</a></li>
           <li><a class="nav__link" href="products.html">Products</a></li>
@@ -30,6 +40,17 @@
       </nav>
 
       <div class="header__actions">
+        <button class="icon-button theme-toggle" type="button" aria-label="Switch to dark mode" title="Switch to dark mode" data-theme-toggle>
+          <span class="theme-toggle__icon" aria-hidden="true">
+            <svg class="theme-toggle__icon--moon" viewBox="0 0 24 24" fill="none">
+              <path d="M21 12.8A8.6 8.6 0 1 1 11.2 3a7 7 0 1 0 9.8 9.8Z" fill="currentColor"/>
+            </svg>
+            <svg class="theme-toggle__icon--sun" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="4" fill="currentColor"/>
+              <path d="M12 2.75v2.1M12 19.15v2.1M4.85 4.85l1.48 1.48M17.67 17.67l1.48 1.48M2.75 12h2.1M19.15 12h2.1M4.85 19.15l1.48-1.48M17.67 6.33l1.48-1.48" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </span>
+        </button>
         <a class="icon-button" href="#" aria-label="Cart placeholder" data-action="open-cart">
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path d="M6 6h15l-1.5 8.5a2 2 0 0 1-2 1.5H8.4a2 2 0 0 1-2-1.6L4.5 3.5H2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
@@ -72,14 +93,23 @@
           </ul>
         </div>
 
-        <div class="hero__visual">
+        <div class="hero__visual" data-slider aria-label="Featured product slider">
           <figure class="hero__image-frame">
-            <img src="images/hero-placeholder.svg" alt="Stylish showcase of modern smart electronics on a premium display">
+            <img src="images/hero-placeholder.svg" alt="Stylish showcase of modern smart electronics on a premium display" data-slider-image>
           </figure>
-          <div class="hero__floating-card glass-card">
-            <span class="mini-label">Featured this week</span>
-            <strong>Nova X1 Pro</strong>
-            <p>Ultra-fast performance, edge-to-edge clarity, and a finish built for modern desks.</p>
+          <div class="hero__floating-card glass-card" data-slider-card>
+            <span class="mini-label" data-slider-kicker>Featured this week</span>
+            <strong data-slider-title>Nova X1 Pro</strong>
+            <p data-slider-copy>Ultra-fast performance, edge-to-edge clarity, and a finish built for modern desks.</p>
+          </div>
+          <div class="slider-controls" aria-label="Hero slider controls">
+            <button class="slider-button" type="button" aria-label="Previous featured product" data-slider-prev>&lt;</button>
+            <button class="slider-button" type="button" aria-label="Next featured product" data-slider-next>&gt;</button>
+          </div>
+          <div class="slider-dots" data-slider-dots aria-label="Hero slider navigation">
+            <button type="button" class="slider-dot is-active" aria-label="Show slide 1" aria-current="true"></button>
+            <button type="button" class="slider-dot" aria-label="Show slide 2"></button>
+            <button type="button" class="slider-dot" aria-label="Show slide 3"></button>
           </div>
         </div>
       </div>
@@ -382,8 +412,7 @@
       <div>
         <h3>Contact</h3>
         <address>
-          120 Innovation Drive<br>
-          Bengaluru, KA 560001<br>
+          Rewari, Haryana (123401)<br>
           <a href="tel:+911234567890">+91 12345 67890</a><br>
           <a href="mailto:hello@technova.com">hello@technova.com</a>
         </address>
@@ -405,5 +434,10 @@
       <p>&copy; 2026 TechNova. Built for the internship Task 1 UI foundation.</p>
     </div>
   </footer>
+
+  <button class="back-to-top" type="button" aria-label="Back to top" data-back-to-top>&uarr;</button>
+  <div class="toast-region" aria-live="polite" aria-atomic="true" data-toast-region></div>
+  <script type="module" src="js/main.js"></script>
+  <script type="module" src="js/slider.js"></script>
 </body>
 </html>

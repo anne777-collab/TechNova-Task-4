@@ -33,3 +33,18 @@
   --transition-base: 250ms ease;
   --font-sans: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
 }
+
+:root[data-theme="dark"] {
+  --color-primary: #60a5fa;
+  --color-primary-dark: #2563eb;
+  --color-accent: #fb923c;
+  --color-bg: #0f172a;
+  --color-surface: #172033;
+  --color-surface-alt: #111827;
+  --color-text: #f8fafc;
+  --color-text-muted: #b6c2d4;
+  --color-border: rgba(248, 250, 252, 0.14);
+  --color-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+  --color-shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.24);
+  --color-glass: rgba(23, 32, 51, 0.78);
+}
