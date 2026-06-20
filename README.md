@@ -76,7 +76,6 @@ No build step and no JavaScript are required for Task 1.
 
 The HTML and CSS structure is prepared for later internship tasks:
 
-- Task 2: JavaScript interactions
 - Task 3: API integration
 
 The current markup includes reusable classes and data attributes so future behavior can be added without major refactoring.
