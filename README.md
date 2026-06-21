@@ -1,22 +1,36 @@
-# 🚀 TechNova - Task 3
+# 🚀 TechNova – Task 4
 
-A modern, responsive multi-page web application built using **HTML5, CSS3, and Vanilla JavaScript** as part of the internship program. This project extends the previous TechNova website by integrating real-world JavaScript functionality, including a live Weather Dashboard powered by the OpenWeather API and a fully functional Todo Manager with Local Storage support.
+A modern, responsive multi-page web application built using **HTML5, CSS3, and Vanilla JavaScript** as part of the ApexPlanet Software Pvt. Ltd. internship program.
 
----
-
-## 📌 Project Overview
-
-TechNova is a responsive technology website designed to demonstrate practical front-end development skills. In **Task 3**, the project focuses on implementing advanced JavaScript concepts such as API integration, Local Storage, DOM manipulation, modular JavaScript, and interactive UI components.
-
-The application provides users with live weather information, a task management system, interactive product previews, and a clean responsive interface.
+Task 4 focuses on **Performance Optimization, SEO, Accessibility, and Code Quality**, while preserving all features developed in previous tasks, including the Weather Dashboard, Todo Manager, Product Catalog, responsive navigation, dark mode, and interactive UI components.
 
 ---
 
-## ✨ Features
+# 📌 Project Overview
 
-### 🌤️ Weather Dashboard
+TechNova is a responsive electronics storefront designed to demonstrate modern front-end development practices.
 
-* Search weather by city name
+This task enhances the application by improving website performance, search engine optimization, accessibility, and overall code organization. The project follows modular architecture, semantic HTML, reusable CSS, and modern JavaScript practices to provide a scalable and maintainable codebase.
+
+---
+
+# ✨ Features
+
+## 🛍️ Product Experience
+
+* Responsive product catalog
+* Search products
+* Category filtering
+* Product sorting
+* Product quick-view modal
+* Responsive product cards
+* Smooth animations
+
+---
+
+## 🌤️ Weather Dashboard
+
+* Search weather by city
 * Live weather data using OpenWeather API
 * Current temperature
 * Feels like temperature
@@ -24,106 +38,157 @@ The application provides users with live weather information, a task management 
 * Wind speed
 * Atmospheric pressure
 * Visibility
-* Sunrise & Sunset (city local time)
+* Sunrise & Sunset
 * Weather description
-* Weather icon
+* Weather icons
 * Input validation
 * Responsive weather interface
 
 ---
 
-### ✅ Todo Manager
+## ✅ Todo Manager
 
 * Add new tasks
+* Edit tasks
+* Delete tasks
 * Mark tasks as completed
-* Edit existing tasks
-* Delete individual tasks
 * Search tasks instantly
-* Filter:
-
-  * All
-  * Active
-  * Completed
-* Mark all tasks as completed
+* Filter (All / Active / Completed)
+* Mark all tasks complete
 * Clear completed tasks
 * Automatic progress tracking
-* Data saved using Local Storage
+* Local Storage persistence
 
 ---
 
-### 🛍️ Product Experience
-
-* Interactive product cards
-* Product quick-view modal
-* Responsive product layout
-* Smooth animations
-
----
-
-### 🎨 User Interface
+## 🎨 User Interface
 
 * Fully responsive layout
-* Dark & Light mode support
 * Mobile-first design
+* Dark & Light mode
+* Responsive navigation
+* Interactive sliders
+* Product preview modal
 * Smooth transitions
 * Modern card-based UI
-* Reusable JavaScript modules
 
 ---
 
-## 🛠️ Technologies Used
+# ⚡ Performance Optimization
+
+* Optimized CSS and JavaScript structure
+* Lazy loading for images
+* Reduced render-blocking resources
+* Minified assets
+* Improved loading performance
+* Optimized DOM structure
+* Google Lighthouse Performance Score: **100**
+
+---
+
+# 🔍 SEO Improvements
+
+* Optimized page titles
+* Meta description
+* Meta keywords
+* Author metadata
+* Open Graph tags
+* Favicon support
+* robots.txt
+* sitemap.xml
+* Semantic HTML structure
+
+---
+
+# ♿ Accessibility
+
+* Semantic HTML elements
+* ARIA labels
+* Alt text for images
+* Keyboard-friendly navigation
+* Improved accessibility practices
+* Lighthouse Accessibility Score: **96**
+
+---
+
+# 🧹 Code Organization
+
+* CSS split into multiple modules
+* JavaScript split into reusable modules
+* BEM naming convention
+* Clean project structure
+* Reusable utility functions
+* Organized folder hierarchy
+* Cleaner and maintainable code
+
+---
+
+# 🛠️ Technologies Used
 
 * HTML5
 * CSS3
 * Vanilla JavaScript (ES6 Modules)
 * OpenWeather API
 * Local Storage API
+* Google Lighthouse
 
 ---
 
-## 📂 Project Structure
+# 📂 Project Structure
 
-```text
+```
 TechNova/
 │
 ├── css/
-│   ├── style.css
+│   ├── base.css
+│   ├── header.css
+│   ├── footer.css
+│   ├── home.css
+│   ├── products.css
+│   ├── about.css
+│   ├── contact.css
 │   ├── weather.css
-│   └── todo.css
+│   ├── todo.css
+│   └── responsive.css
 │
 ├── images/
 │
 ├── js/
-│   ├── main.js
+│   ├── api.js
+│   ├── ui.js
+│   ├── utils.js
 │   ├── weather.js
 │   ├── todo.js
-│   ├── storage.js
-│   ├── modal.js
+│   ├── products.js
+│   ├── theme.js
 │   ├── navigation.js
 │   ├── slider.js
-│   ├── theme.js
+│   ├── modal.js
 │   ├── validation.js
 │   ├── config.example.js
 │   └── config.js (ignored)
 │
 ├── index.html
-├── about.html
 ├── products.html
+├── about.html
 ├── weather.html
 ├── todo.html
 ├── contact.html
+├── robots.txt
+├── sitemap.xml
+├── .gitignore
 └── README.md
 ```
 
 ---
 
-## 🔑 Weather API Setup
+# 🔑 Weather API Setup
 
-This project uses the **OpenWeather API**.
+This project uses the OpenWeather API.
 
-Create a file named:
+Create:
 
-```text
+```
 js/config.js
 ```
 
@@ -133,17 +198,17 @@ Add your API key:
 export const OPENWEATHER_API_KEY = "YOUR_API_KEY";
 ```
 
-An example configuration file is already included:
+A template configuration file is already included:
 
-```text
+```
 js/config.example.js
 ```
 
 ---
 
-## ▶️ Running the Project
+# ▶️ Running the Project
 
-1. Clone the repository
+1. Clone the repository.
 
 ```bash
 git clone <repository-url>
@@ -153,19 +218,19 @@ git clone <repository-url>
 
 3. Create:
 
-```text
+```
 js/config.js
 ```
 
 4. Add your OpenWeather API key.
 
-5. Launch the project using **Live Server** in VS Code.
+5. Launch the project using **Live Server** in Visual Studio Code.
 
 ---
 
-## 📱 Responsive Design
+# 📱 Responsive Design
 
-The application has been optimized for:
+The website is optimized for:
 
 * Desktop
 * Laptop
@@ -174,35 +239,49 @@ The application has been optimized for:
 
 ---
 
-## 🎯 Task 3 Objectives Completed
+# 📊 Lighthouse Scores
 
-* Responsive web pages
-* JavaScript modules
-* DOM manipulation
-* Event handling
-* Weather API integration
-* Local Storage implementation
-* Todo Manager
-* Product quick-view modal
-* Form validation
-* Interactive UI components
-* Modern responsive design
+* ✅ Performance: **100**
+* ✅ Accessibility: **96**
+* ✅ Best Practices: **100**
+* ✅ SEO: **100**
 
 ---
 
-## 🔒 Security
+# 🎯 Task 4 Objectives Completed
+
+* Performance Optimization
+* Image Optimization
+* Lazy Loading
+* Minified Assets
+* Google Lighthouse Testing
+* Meta Tags
+* Open Graph Tags
+* Favicon Integration
+* robots.txt
+* sitemap.xml
+* Semantic HTML
+* Accessibility Improvements
+* CSS Modularization
+* JavaScript Modularization
+* BEM Naming Convention
+* Clean Code Organization
+
+---
+
+# 🔒 Security
 
 The OpenWeather API key is **not committed** to GitHub.
 
 * `config.js` is ignored using `.gitignore`
-* `config.example.js` is provided as a template for setup
+* `config.example.js` is included for easy setup
 
 ---
 
-## 👨‍💻 Author
+# 👨‍💻 Author
 
 **Sahil**
 
-Internship Project – Task 3
+ApexPlanet Software Pvt. Ltd. Internship Project – Task 4
 
-Built with ❤️ using HTML, CSS, and JavaScript.
+Built with ❤️ using HTML5, CSS3, and Vanilla JavaScript.
