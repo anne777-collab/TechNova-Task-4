@@ -3,10 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Products | TechNova</title>
-  <meta name="description" content="Browse TechNova's premium product catalog with static search, filter, and sorting UI.">
-  <meta name="keywords" content="TechNova products, electronics catalog, smartphones, laptops, gaming, accessories">
+  <title>TechNova Products | Premium Electronics Catalog</title>
+  <meta name="description" content="Browse TechNova's premium product catalog with smartphones, laptops, gaming gear, accessories, smart watches, and audio devices.">
+  <meta name="keywords" content="TechNova products, TechNova catalog, electronics catalog, smartphones, laptops, gaming gear, accessories, smart watches, audio devices">
   <meta name="author" content="TechNova">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://technova-demo.netlify.app/products.html">
+  <meta property="og:title" content="TechNova Products | Premium Electronics Catalog">
+  <meta property="og:description" content="Browse TechNova's premium product catalog with smartphones, laptops, gaming gear, accessories, smart watches, and audio devices.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://technova-demo.netlify.app/products.html">
+  <meta property="og:image" content="https://technova-demo.netlify.app/images/hero-placeholder.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="TechNova Products | Premium Electronics Catalog">
+  <meta name="twitter:description" content="Browse TechNova's premium product catalog with smartphones, laptops, gaming gear, accessories, smart watches, and audio devices.">
+  <meta name="twitter:image" content="https://technova-demo.netlify.app/images/hero-placeholder.svg">
   <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/style.css">
@@ -16,6 +27,7 @@
   <div class="page-loader" data-loader aria-label="Page loading">
     <span class="loader-ring" aria-hidden="true"></span>
   </div>
+  <a class="skip-link" href="#main-content">Skip to Main Content</a>
 
   <header class="site-header" data-component="site-header">
     <div class="container header__inner">
@@ -65,7 +77,7 @@
     </div>
   </header>
 
-  <main class="page-main">
+  <main class="page-main" id="main-content" tabindex="-1">
     <section class="page-hero section section--tinted" data-section="products-hero">
       <div class="container">
         <div class="section-heading section-heading--center">
@@ -75,32 +87,33 @@
         </div>
 
         <form class="catalog-tools glass-card" data-form="catalog-tools" aria-label="Product catalog controls">
-          <div class="field">
+          <div class="field catalog-tools__search">
             <label for="catalog-search">Search products</label>
             <input id="catalog-search" name="search" type="search" placeholder="Search by product name or category">
           </div>
-          <div class="field">
+          <div class="field catalog-tools__group">
             <label for="catalog-category">Category filter</label>
             <select id="catalog-category" name="category">
-              <option>All Categories</option>
-              <option>Smartphones</option>
-              <option>Laptops</option>
-              <option>Gaming</option>
-              <option>Accessories</option>
-              <option>Smart Watches</option>
-              <option>Audio Devices</option>
+              <option value="all" selected>All</option>
+              <option value="smartphones">Phones</option>
+              <option value="laptops">Laptops</option>
+              <option value="gaming">Gaming</option>
+              <option value="accessories">Accessories</option>
+              <option value="smartwatches">Watches</option>
+              <option value="audio">Audio</option>
             </select>
           </div>
-          <div class="field">
+          <div class="field catalog-tools__group">
             <label for="catalog-sort">Sort by</label>
             <select id="catalog-sort" name="sort">
-              <option>Featured</option>
-              <option>Price: Low to High</option>
-              <option>Price: High to Low</option>
-              <option>Top Rated</option>
-              <option>Newest</option>
+              <option value="featured" selected>Featured</option>
+              <option value="price-asc">Low to High</option>
+              <option value="price-desc">High to Low</option>
+              <option value="rating-desc">Top Rated</option>
+              <option value="newest">Newest</option>
             </select>
           </div>
+          <button class="btn btn--primary catalog-tools__apply" type="submit">Apply Filters</button>
         </form>
       </div>
     </section>
@@ -109,7 +122,7 @@
       <div class="container">
         <div class="card-grid card-grid--products card-grid--catalog">
           <article class="product-card" data-product-card data-product-id="nova-air-12" data-product-category="smartphones">
-            <img src="images/product-placeholder.svg" alt="Compact smartphone product display with a glossy edge-to-edge screen">
+            <img src="images/product-placeholder.svg" alt="Compact smartphone product display with a glossy edge-to-edge screen" width="640" height="480" loading="lazy" decoding="async">
             <div class="product-card__body">
               <span class="chip">Smartphones</span>
               <h2 class="product-card__title">Nova Air 12</h2>
@@ -122,7 +135,7 @@
             </div>
           </article>
           <article class="product-card" data-product-card data-product-id="nova-max-ultra" data-product-category="smartphones">
-            <img src="images/product-placeholder.svg" alt="Flagship smartphone product display with premium metallic styling">
+            <img src="images/product-placeholder.svg" alt="Flagship smartphone product display with premium metallic styling" width="640" height="480" loading="lazy" decoding="async">
             <div class="product-card__body">
               <span class="chip">Smartphones</span>
               <h2 class="product-card__title">Nova Max Ultra</h2>
@@ -135,7 +148,7 @@
             </div>
           </article>
           <article class="product-card" data-product-card data-product-id="aero-slate-13" data-product-category="laptops">
-            <img src="images/product-placeholder.svg" alt="Portable laptop product display shown as a slim workstation device">
+            <img src="images/product-placeholder.svg" alt="Portable laptop product display shown as a slim workstation device" width="640" height="480" loading="lazy" decoding="async">
             <div class="product-card__body">
               <span class="chip">Laptops</span>
               <h2 class="product-card__title">Aero Slate 13</h2>
@@ -148,7 +161,7 @@
             </div>
           </article>
           <article class="product-card" data-product-card data-product-id="aero-book-16" data-product-category="laptops">
-            <img src="images/product-placeholder.svg" alt="Large laptop product display with a professional creative setup">
+            <img src="images/product-placeholder.svg" alt="Large laptop product display with a professional creative setup" width="640" height="480" loading="lazy" decoding="async">
             <div class="product-card__body">
               <span class="chip">Laptops</span>
               <h2 class="product-card__title">Aero Book 16</h2>
@@ -161,7 +174,7 @@
             </div>
           </article>
           <article class="product-card" data-product-card data-product-id="pixel-core-7" data-product-category="gaming">
-            <img src="images/product-placeholder.svg" alt="Gaming console style product display with illuminated accents">
+            <img src="images/product-placeholder.svg" alt="Gaming console style product display with illuminated accents" width="640" height="480" loading="lazy" decoding="async">
             <div class="product-card__body">
               <span class="chip">Gaming</span>
               <h2 class="product-card__title">Pixel Core 7</h2>
@@ -174,7 +187,7 @@
             </div>
           </article>
           <article class="product-card" data-product-card data-product-id="pixel-arc-headset" data-product-category="gaming">
-            <img src="images/product-placeholder.svg" alt="Gaming headset product display with a premium over-ear profile">
+            <img src="images/product-placeholder.svg" alt="Gaming headset product display with a premium over-ear profile" width="640" height="480" loading="lazy" decoding="async">
             <div class="product-card__body">
               <span class="chip">Gaming</span>
               <h2 class="product-card__title">Pixel Arc Headset</h2>
@@ -187,7 +200,7 @@
             </div>
           </article>
           <article class="product-card" data-product-card data-product-id="magkit-mini" data-product-category="accessories">
-            <img src="images/product-placeholder.svg" alt="Compact accessory product display with charging and desk organization gear">
+            <img src="images/product-placeholder.svg" alt="Compact accessory product display with charging and desk organization gear" width="640" height="480" loading="lazy" decoding="async">
             <div class="product-card__body">
               <span class="chip">Accessories</span>
               <h2 class="product-card__title">MagKit Mini</h2>
@@ -200,7 +213,7 @@
             </div>
           </article>
           <article class="product-card" data-product-card data-product-id="nova-stand-pro" data-product-category="accessories">
-            <img src="images/product-placeholder.svg" alt="Accessory product display with a premium desk stand and docking setup">
+            <img src="images/product-placeholder.svg" alt="Accessory product display with a premium desk stand and docking setup" width="640" height="480" loading="lazy" decoding="async">
             <div class="product-card__body">
               <span class="chip">Accessories</span>
               <h2 class="product-card__title">Nova Stand Pro</h2>
@@ -213,7 +226,7 @@
             </div>
           </article>
           <article class="product-card" data-product-card data-product-id="pulse-band-3" data-product-category="smartwatches">
-            <img src="images/product-placeholder.svg" alt="Smart watch product display with a sporty wearable band design">
+            <img src="images/product-placeholder.svg" alt="Smart watch product display with a sporty wearable band design" width="640" height="480" loading="lazy" decoding="async">
             <div class="product-card__body">
               <span class="chip">Smart Watches</span>
               <h2 class="product-card__title">Pulse Band 3</h2>
@@ -226,7 +239,7 @@
             </div>
           </article>
           <article class="product-card" data-product-card data-product-id="pulse-luxe" data-product-category="smartwatches">
-            <img src="images/product-placeholder.svg" alt="Luxury smart watch product display with a polished metal frame">
+            <img src="images/product-placeholder.svg" alt="Luxury smart watch product display with a polished metal frame" width="640" height="480" loading="lazy" decoding="async">
             <div class="product-card__body">
               <span class="chip">Smart Watches</span>
               <h2 class="product-card__title">Pulse Luxe</h2>
@@ -239,7 +252,7 @@
             </div>
           </article>
           <article class="product-card" data-product-card data-product-id="sound-pods-air" data-product-category="audio">
-            <img src="images/product-placeholder.svg" alt="Wireless earbud product display with a compact charging case">
+            <img src="images/product-placeholder.svg" alt="Wireless earbud product display with a compact charging case" width="640" height="480" loading="lazy" decoding="async">
             <div class="product-card__body">
               <span class="chip">Audio</span>
               <h2 class="product-card__title">Sound Pods Air</h2>
@@ -252,7 +265,7 @@
             </div>
           </article>
           <article class="product-card" data-product-card data-product-id="sound-bar-mini" data-product-category="audio">
-            <img src="images/product-placeholder.svg" alt="Audio product display with a compact premium sound bar">
+            <img src="images/product-placeholder.svg" alt="Audio product display with a compact premium sound bar" width="640" height="480" loading="lazy" decoding="async">
             <div class="product-card__body">
               <span class="chip">Audio</span>
               <h2 class="product-card__title">Sound Bar Mini</h2>
@@ -265,7 +278,7 @@
             </div>
           </article>
           <article class="product-card" data-product-card data-product-id="nova-keyboard" data-product-category="accessories">
-            <img src="images/product-placeholder.svg" alt="Accessory product display with a minimalist mechanical keyboard">
+            <img src="images/product-placeholder.svg" alt="Accessory product display with a minimalist mechanical keyboard" width="640" height="480" loading="lazy" decoding="async">
             <div class="product-card__body">
               <span class="chip">Accessories</span>
               <h2 class="product-card__title">Nova Keyboard</h2>
@@ -278,7 +291,7 @@
             </div>
           </article>
           <article class="product-card" data-product-card data-product-id="nova-mouse-pro" data-product-category="accessories">
-            <img src="images/product-placeholder.svg" alt="Accessory product display with an ergonomic premium mouse">
+            <img src="images/product-placeholder.svg" alt="Accessory product display with an ergonomic premium mouse" width="640" height="480" loading="lazy" decoding="async">
             <div class="product-card__body">
               <span class="chip">Accessories</span>
               <h2 class="product-card__title">Nova Mouse Pro</h2>
@@ -291,7 +304,7 @@
             </div>
           </article>
           <article class="product-card" data-product-card data-product-id="audio-pod-lite" data-product-category="audio">
-            <img src="images/product-placeholder.svg" alt="Audio product display with lightweight earbuds and a charging dock">
+            <img src="images/product-placeholder.svg" alt="Audio product display with lightweight earbuds and a charging dock" width="640" height="480" loading="lazy" decoding="async">
             <div class="product-card__body">
               <span class="chip">Audio</span>
               <h2 class="product-card__title">Audio Pod Lite</h2>
@@ -304,7 +317,7 @@
             </div>
           </article>
           <article class="product-card" data-product-card data-product-id="nova-dock-pro" data-product-category="accessories">
-            <img src="images/product-placeholder.svg" alt="Accessory product display with a premium desktop charging dock">
+            <img src="images/product-placeholder.svg" alt="Accessory product display with a premium desktop charging dock" width="640" height="480" loading="lazy" decoding="async">
             <div class="product-card__body">
               <span class="chip">Accessories</span>
               <h2 class="product-card__title">Nova Dock Pro</h2>
@@ -387,7 +400,9 @@
     <div class="modal__overlay" data-modal-close></div>
     <article class="modal__panel" tabindex="-1">
       <button class="modal__close" type="button" aria-label="Close quick view" data-modal-close>&times;</button>
-      <img class="modal__image" src="images/product-placeholder.svg" alt="" data-modal-image>
+      <div class="modal__media">
+        <img class="modal__image" src="images/product-placeholder.svg" alt="" data-modal-image width="640" height="480" loading="lazy" decoding="async">
+      </div>
       <div class="modal__content">
         <span class="chip" data-modal-category>Category</span>
         <h2 id="quick-view-title" data-modal-title>Product name</h2>
@@ -402,7 +417,7 @@
 
   <button class="back-to-top" type="button" aria-label="Back to top" data-back-to-top>&uarr;</button>
   <div class="toast-region" aria-live="polite" aria-atomic="true" data-toast-region></div>
-  <script type="module" src="js/main.js"></script>
-  <script type="module" src="js/modal.js"></script>
+  <script type="module" src="js/main.js" defer></script>
+  <script type="module" src="js/modal.js" defer></script>
 </body>
 </html>

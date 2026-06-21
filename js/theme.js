@@ -16,10 +16,11 @@ const applyTheme = (theme, button) => {
 
   button.setAttribute("aria-label", label);
   button.setAttribute("title", label);
+  button.setAttribute("aria-pressed", String(isDark));
   button.dataset.theme = theme;
 };
 
-export const initTheme = (notify) => {
+export const initTheme = () => {
   const button = document.querySelector("[data-theme-toggle]");
   const initialTheme = getPreferredTheme();
 

@@ -33,7 +33,19 @@
   }
 
   .catalog-tools {
-    grid-template-columns: 1fr;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4);
+  }
+
+  .catalog-tools__search {
+    grid-column: 1 / -1;
+  }
+
+  .catalog-tools__apply {
+    grid-column: 1 / -1;
+    justify-self: stretch;
+    width: 100%;
   }
 
   .newsletter-form {
@@ -46,13 +58,18 @@
 
   .hero__visual {
     justify-self: center;
-    width: min(100%, 640px);
+    width: min(100%, 30rem);
+  }
+
+  .about-hero__image {
+    justify-self: center;
+    width: min(100%, 400px);
   }
 
   .hero__floating-card {
-    right: 1rem;
-    bottom: 1rem;
-    width: min(300px, calc(100% - 2rem));
+    right: 0.75rem;
+    bottom: -1.5rem;
+    width: min(250px, 62%);
   }
 }
 
@@ -194,7 +211,11 @@
   }
 
   .hero__visual {
-    width: min(100%, 640px);
+    width: min(100%, 26rem);
+  }
+
+  .about-hero__image {
+    width: min(100%, 400px);
   }
 
   .hero__content h1 {
@@ -207,13 +228,6 @@
     margin-top: var(--space-4);
   }
 
-  .slider-controls,
-  .slider-dots {
-    position: static;
-    justify-content: center;
-    margin-top: var(--space-3);
-  }
-
   iframe {
     min-height: 18rem;
   }
@@ -224,10 +238,48 @@
 
   .modal__panel {
     grid-template-columns: 1fr;
+    max-height: min(90vh, 640px);
+    padding: var(--space-4);
+  }
+
+  .modal__media {
+    justify-self: center;
+    width: min(100%, 280px);
+    padding: var(--space-2);
+  }
+
+  .modal__image {
+    max-height: 180px;
   }
 
   .modal__content {
     padding-right: 0;
+    text-align: center;
+  }
+
+  .modal__content .product-card__meta {
+    justify-content: center;
+  }
+
+  .catalog-tools {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: var(--space-4);
+  }
+
+  .catalog-tools__search,
+  .catalog-tools__group {
+    grid-column: 1 / -1;
+  }
+
+  .catalog-tools select {
+    font-size: 0.95rem;
+  }
+
+  .catalog-tools__apply {
+    grid-column: 1 / -1;
+    width: 100%;
+    min-width: 0;
   }
 }
 
@@ -297,6 +349,40 @@
   .catalog-tools,
   .newsletter-card {
     padding: var(--space-4);
+  }
+
+  .catalog-tools {
+    gap: var(--space-3);
+  }
+
+  .catalog-tools select {
+    font-size: 0.95rem;
+  }
+
+  .catalog-tools__pills {
+    gap: 0.5rem;
+  }
+
+  .catalog-pill {
+    width: 100%;
+    min-height: 2.75rem;
+    justify-content: flex-start;
+  }
+
+  .catalog-tools__apply {
+    width: 100%;
+    justify-self: stretch;
+  }
+
+  .newsletter-form {
+    grid-template-columns: 1fr;
+  }
+
+  input,
+  select,
+  textarea {
+    box-sizing: border-box;
+    max-width: 100%;
   }
 }
 

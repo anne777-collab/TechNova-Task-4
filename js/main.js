@@ -161,7 +161,103 @@ const initPlaceholderActions = () => {
 
 initLoader();
 initNavigation();
-initTheme(showToast);
+initTheme();
 initBackToTop();
 initSmoothScrolling();
 initPlaceholderActions();
+const normalizeCatalogValue = (value) => String(value || "").trim().toLowerCase();
+
+const initCatalogFilters = () => {
+  const form = document.querySelector("[data-form='catalog-tools']");
+  const grid = document.querySelector("[data-section='catalog-grid'] .card-grid--catalog");
+
+  if (!form || !grid) return;
+
+  const searchInput = form.querySelector("#catalog-search");
+  const categorySelect = form.querySelector("#catalog-category");
+  const sortSelect = form.querySelector("#catalog-sort");
+  const cards = [...grid.querySelectorAll("[data-product-card]")];
+
+  if (!searchInput || !categorySelect || !sortSelect || !cards.length) return;
+
+  const indexedCards = cards.map((card, index) => {
+    card.dataset.catalogIndex = String(index);
+    return {
+      card,
+      index,
+      title: normalizeCatalogValue(card.querySelector(".product-card__title, h3")?.textContent),
+      category: normalizeCatalogValue(card.dataset.productCategory)
+    };
+  });
+
+  const getPrice = (card) =>
+    Number.parseFloat(card.querySelector(".price")?.textContent.replace(/[^0-9.]/g, "") || "0");
+
+  const getRating = (card) =>
+    Number.parseFloat(card.querySelector(".rating")?.textContent.replace(/[^0-9.]/g, "") || "0");
+
+  const sortCards = (items, sortValue) => {
+    const sorted = [...items];
+
+    switch (sortValue) {
+      case "price-asc":
+        sorted.sort((a, b) => getPrice(a.card) - getPrice(b.card) || a.index - b.index);
+        break;
+      case "price-desc":
+        sorted.sort((a, b) => getPrice(b.card) - getPrice(a.card) || a.index - b.index);
+        break;
+      case "rating-desc":
+        sorted.sort((a, b) => getRating(b.card) - getRating(a.card) || a.index - b.index);
+        break;
+      case "newest":
+        sorted.sort((a, b) => b.index - a.index);
+        break;
+      default:
+        sorted.sort((a, b) => a.index - b.index);
+        break;
+    }
+
+    return sorted;
+  };
+
+  const applyFilters = () => {
+    const query = normalizeCatalogValue(searchInput.value);
+    const categoryValue = normalizeCatalogValue(categorySelect.value);
+    const sortValue = normalizeCatalogValue(sortSelect.value);
+
+    const hasActiveFilters =
+      Boolean(query) || categoryValue !== "all" || sortValue !== "featured";
+
+    if (!hasActiveFilters) {
+      cards.forEach((card) => {
+        card.hidden = false;
+      });
+      grid.replaceChildren(...indexedCards.map(({ card }) => card));
+      return;
+    }
+
+    const visibleItems = indexedCards.filter(({ title, category }) => {
+      const matchesSearch = !query || title.includes(query) || category.includes(query);
+      const matchesCategory = categoryValue === "all" || category === categoryValue;
+      return matchesSearch && matchesCategory;
+    });
+
+    const visibleSet = new Set(visibleItems.map(({ card }) => card));
+    const sortedVisibleItems = sortCards(visibleItems, sortValue);
+
+    cards.forEach((card) => {
+      card.hidden = !visibleSet.has(card);
+    });
+
+    grid.replaceChildren(...sortedVisibleItems.map(({ card }) => card));
+  };
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    applyFilters();
+  });
+
+  applyFilters();
+};
+
+initCatalogFilters();

@@ -1,19 +1,14 @@
+import { OPENWEATHER_API_KEY } from "./config.js";
 import { readStorage, writeStorage } from "./storage.js";
-
-/* ── Constants ──────────────────────────────────────────────── */
 
 const STORAGE_KEYS = {
   lastCity: "technova-weather-last-city"
 };
 
 const API_BASE_URL = "https://api.openweathermap.org/data/2.5/weather";
-import { OPENWEATHER_API_KEY } from "./config.js";
-
 const BUTTON_LABEL_DEFAULT = "Search Weather";
 const BUTTON_LABEL_LOADING = "Searching\u2026";
 const TOAST_DURATION_MS = 3500;
-
-/* ── Utility Helpers ────────────────────────────────────────── */
 
 const toSafeNumber = (value) => {
   const num = Number(value);
@@ -21,8 +16,6 @@ const toSafeNumber = (value) => {
 };
 
 const normalizeCity = (value) => String(value || "").trim().replace(/\s+/g, " ");
-
-/* ── Formatting Helpers ─────────────────────────────────────── */
 
 const formatTemperature = (value) => {
   const num = toSafeNumber(value);
@@ -72,15 +65,10 @@ const formatLastUpdated = () => {
   }).format(new Date())}`;
 };
 
-/* ── Weather Icon ───────────────────────────────────────────── */
-
 const buildIconUrl = (iconCode) =>
   iconCode ? `https://openweathermap.org/img/wn/${iconCode}@2x.png` : "";
 
-/* ── Main Initialiser ───────────────────────────────────────── */
-
 const initWeatherPage = () => {
-  /* ── DOM References ─────────────────────────────────────── */
   const form = document.querySelector("[data-weather-form]");
   const input = document.querySelector("#weather-city");
   const submitBtn = form?.querySelector(".weather-search-form__submit");
@@ -110,13 +98,10 @@ const initWeatherPage = () => {
 
   if (!form || !input || !submitBtn || !resultCard) return;
 
-  /* ── State ──────────────────────────────────────────────── */
   let activeRequestController = null;
   let latestRequestId = 0;
   let lastSearchedCity = "";
   let activeToastTimer = null;
-
-  /* ── DOM Helpers ────────────────────────────────────────── */
 
   const setHidden = (el, hidden) => {
     if (el) el.hidden = hidden;
@@ -126,21 +111,16 @@ const initWeatherPage = () => {
     if (el) el.textContent = value;
   };
 
-  /* ── Toast Notification ─────────────────────────────────── */
-
   const showToast = (message) => {
     if (!toastRegion) return;
 
-    /* Clear any previous toast timer */
     if (activeToastTimer) {
       clearTimeout(activeToastTimer);
       activeToastTimer = null;
     }
 
-    /* Remove any existing weather toasts */
     toastRegion.querySelectorAll("[data-weather-toast]").forEach((el) => el.remove());
 
-    /* Create toast element */
     const toast = document.createElement("div");
     toast.className = "toast toast--error";
     toast.setAttribute("role", "status");
@@ -148,16 +128,13 @@ const initWeatherPage = () => {
     toast.textContent = message;
     toastRegion.appendChild(toast);
 
-    /* Trigger slide-in on next frame */
     requestAnimationFrame(() => {
       toast.classList.add("is-visible");
     });
 
-    /* Auto-dismiss */
     activeToastTimer = setTimeout(() => {
       toast.classList.remove("is-visible");
       toast.addEventListener("transitionend", () => toast.remove(), { once: true });
-      /* Fallback removal if transitionend doesn't fire */
       setTimeout(() => {
         if (toast.parentNode) toast.remove();
       }, 400);
@@ -178,8 +155,6 @@ const initWeatherPage = () => {
     });
   };
 
-  /* ── Button State ───────────────────────────────────────── */
-
   const setButtonLoading = (loading) => {
     submitBtn.disabled = loading;
 
@@ -195,8 +170,6 @@ const initWeatherPage = () => {
       submitBtn.textContent = BUTTON_LABEL_DEFAULT;
     }
   };
-
-  /* ── Inline Field Message ───────────────────────────────── */
 
   const clearFieldMsg = () => {
     if (fieldMsg) {
@@ -216,16 +189,12 @@ const initWeatherPage = () => {
     input.classList.add("is-invalid");
   };
 
-  /* ── State Manager ──────────────────────────────────────── */
-
   const resetWeatherState = () => {
     clearFieldMsg();
     dismissToast();
     setHidden(resultCard, true);
     setButtonLoading(false);
   };
-
-  /* ── Populate Result Card ───────────────────────────────── */
 
   const populateWeatherFields = (data) => {
     const weather = Array.isArray(data.weather) ? data.weather[0] : null;
@@ -239,14 +208,12 @@ const initWeatherPage = () => {
     const apiCityName = data.name || "Unknown";
     const iconUrl = buildIconUrl(weather?.icon);
 
-    /* Hero section */
     setText(cityTitle, apiCityName);
     setText(descriptionText, description);
     setText(temperatureText, formatTemperature(main.temp));
     setText(feelsLikeText, `Feels like ${formatTemperature(main.feels_like)}`);
     setText(updatedText, formatLastUpdated());
 
-    /* Metric grid */
     setText(metricValues.temperature, formatTemperature(main.temp));
     setText(metricValues.feelsLike, formatTemperature(main.feels_like));
     setText(metricValues.humidity, formatHumidity(main.humidity));
@@ -257,7 +224,6 @@ const initWeatherPage = () => {
     setText(metricValues.sunset, formatLocalTime(sys.sunset, timezoneOffset));
     setText(metricValues.description, description);
 
-    /* Icon — always update, hide if unavailable, prevent broken image */
     if (iconImage) {
       if (iconUrl) {
         iconImage.src = iconUrl;
@@ -287,8 +253,6 @@ const initWeatherPage = () => {
       writeStorage(STORAGE_KEYS.lastCity, confirmedCity);
     }
   };
-
-  /* ── API Fetch ──────────────────────────────────────────── */
 
   const fetchWeatherByCity = async (cityName, controller) => {
     const requestUrl = new URL(API_BASE_URL);
@@ -336,8 +300,6 @@ const initWeatherPage = () => {
     return data;
   };
 
-  /* ── Search Orchestrator ────────────────────────────────── */
-
   const searchWeather = async (rawCityName) => {
     const cityName = normalizeCity(rawCityName);
 
@@ -347,7 +309,6 @@ const initWeatherPage = () => {
       return;
     }
 
-    /* Prevent duplicate requests for the exact same city */
     if (
       cityName.toLowerCase() === lastSearchedCity.toLowerCase() &&
       resultCard &&
@@ -359,12 +320,10 @@ const initWeatherPage = () => {
     const requestId = ++latestRequestId;
     lastSearchedCity = cityName;
 
-    /* Cancel any in-flight request */
     activeRequestController?.abort();
     const controller = new AbortController();
     activeRequestController = controller;
 
-    /* Show inline loading state — keep result card visible if it has data */
     clearFieldMsg();
     dismissToast();
     setButtonLoading(true);
@@ -372,7 +331,6 @@ const initWeatherPage = () => {
     try {
       const weatherData = await fetchWeatherByCity(cityName, controller);
 
-      /* Stale-request guard */
       if (requestId !== latestRequestId) return;
 
       showWeather(weatherData);
@@ -383,10 +341,8 @@ const initWeatherPage = () => {
       setButtonLoading(false);
 
       if (error?.kind === "not-found") {
-        /* City not found — inline validation under the input */
         showFieldMsg("We couldn't find that city. Check the spelling and try again.");
       } else {
-        /* Network / auth / parse / server errors — toast, keep last weather visible */
         showToast("Unable to update weather. Please try again later.");
       }
     } finally {
@@ -396,8 +352,6 @@ const initWeatherPage = () => {
     }
   };
 
-  /* ── Event Listeners ────────────────────────────────────── */
-
   resetWeatherState();
 
   form.addEventListener("submit", (event) => {
@@ -406,7 +360,6 @@ const initWeatherPage = () => {
   });
 
   input.addEventListener("input", () => {
-    /* Clear validation styling as soon as the user types */
     input.classList.remove("is-invalid");
     if (fieldMsg) {
       fieldMsg.hidden = true;
@@ -427,8 +380,6 @@ const initWeatherPage = () => {
       searchWeather(cityName);
     });
   });
-
-  /* ── Auto-load last searched city on page reload ────────── */
 
   const lastCity = readStorage(STORAGE_KEYS.lastCity);
   if (lastCity) {

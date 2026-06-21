@@ -3,10 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Smart Tasks | TechNova</title>
-  <meta name="description" content="TechNova Smart Tasks is a premium todo workspace with task management, filtering, search, progress tracking, and localStorage persistence.">
-  <meta name="keywords" content="TechNova Smart Tasks, todo list, task manager, localStorage, productivity">
+  <title>TechNova Smart Tasks | Todo Manager & Productivity Workspace</title>
+  <meta name="description" content="Manage tasks in TechNova Smart Tasks with filtering, search, progress tracking, and localStorage persistence.">
+  <meta name="keywords" content="TechNova Smart Tasks, todo manager, task manager, productivity workspace, localStorage, task filtering, task search">
   <meta name="author" content="TechNova">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://technova-demo.netlify.app/todo.html">
+  <meta property="og:title" content="TechNova Smart Tasks | Todo Manager & Productivity Workspace">
+  <meta property="og:description" content="Manage tasks in TechNova Smart Tasks with filtering, search, progress tracking, and localStorage persistence.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://technova-demo.netlify.app/todo.html">
+  <meta property="og:image" content="https://technova-demo.netlify.app/images/hero-placeholder.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="TechNova Smart Tasks | Todo Manager & Productivity Workspace">
+  <meta name="twitter:description" content="Manage tasks in TechNova Smart Tasks with filtering, search, progress tracking, and localStorage persistence.">
+  <meta name="twitter:image" content="https://technova-demo.netlify.app/images/hero-placeholder.svg">
   <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/style.css">
@@ -17,6 +28,7 @@
   <div class="page-loader" data-loader aria-label="Page loading">
     <span class="loader-ring" aria-hidden="true"></span>
   </div>
+  <a class="skip-link" href="#main-content">Skip to Main Content</a>
 
   <header class="site-header" data-component="site-header">
     <div class="container header__inner">
@@ -66,7 +78,7 @@
     </div>
   </header>
 
-  <main class="page-main todo-main">
+  <main class="page-main todo-main" id="main-content" tabindex="-1">
     <section class="page-hero section section--tinted todo-hero" data-section="todo-hero">
       <div class="container todo-hero__grid">
         <div class="section-heading todo-hero__content">
@@ -266,7 +278,7 @@
 
   <button class="back-to-top" type="button" aria-label="Back to top" data-back-to-top>&uarr;</button>
   <div class="toast-region" aria-live="polite" aria-atomic="true" data-toast-region></div>
-  <script type="module" src="js/main.js"></script>
-  <script type="module" src="js/todo.js"></script>
+  <script type="module" src="js/main.js" defer></script>
+  <script type="module" src="js/todo.js" defer></script>
 </body>
 </html>

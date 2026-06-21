@@ -3,10 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Weather | TechNova</title>
-  <meta name="description" content="Explore TechNova's premium Weather page with a polished search UI, forecast summary cards, and reusable static components.">
-  <meta name="keywords" content="TechNova Weather, weather dashboard, city search, premium UI">
+  <title>TechNova Weather | City Forecast Dashboard</title>
+  <meta name="description" content="Check city weather forecasts on TechNova's premium weather dashboard with current conditions, summary cards, and reusable components.">
+  <meta name="keywords" content="TechNova weather, weather dashboard, city forecast, weather search, current conditions, premium UI">
   <meta name="author" content="TechNova">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://technova-demo.netlify.app/weather.html">
+  <meta property="og:title" content="TechNova Weather | City Forecast Dashboard">
+  <meta property="og:description" content="Check city weather forecasts on TechNova's premium weather dashboard with current conditions, summary cards, and reusable components.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://technova-demo.netlify.app/weather.html">
+  <meta property="og:image" content="https://technova-demo.netlify.app/images/hero-placeholder.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="TechNova Weather | City Forecast Dashboard">
+  <meta name="twitter:description" content="Check city weather forecasts on TechNova's premium weather dashboard with current conditions, summary cards, and reusable components.">
+  <meta name="twitter:image" content="https://technova-demo.netlify.app/images/hero-placeholder.svg">
   <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/style.css">
@@ -17,6 +28,7 @@
   <div class="page-loader" data-loader aria-label="Page loading">
     <span class="loader-ring" aria-hidden="true"></span>
   </div>
+  <a class="skip-link" href="#main-content">Skip to Main Content</a>
 
   <header class="site-header" data-component="site-header">
     <div class="container header__inner">
@@ -66,7 +78,7 @@
     </div>
   </header>
 
-  <main class="page-main weather-main">
+  <main class="page-main weather-main" id="main-content" tabindex="-1">
     <section class="page-hero section section--tinted weather-hero" data-section="weather-hero">
       <div class="container">
         <div class="section-heading section-heading--center weather-hero__content">
@@ -106,7 +118,7 @@
                 <h2 id="weather-result-title" data-weather-city>City name</h2>
                 <p class="weather-result-card__description" data-weather-description>Weather description appears here.</p>
                 <div class="weather-result-card__temperature">
-                  <img class="weather-result-card__icon" data-weather-icon hidden alt="">
+                  <img class="weather-result-card__icon" data-weather-icon hidden alt="" width="80" height="80" decoding="async">
                   <div class="weather-result-card__temperature-copy">
                     <strong data-weather-temperature>--&deg;</strong>
                     <span data-weather-feels-like>Feels like --&deg;</span>
@@ -238,7 +250,7 @@
 
   <button class="back-to-top" type="button" aria-label="Back to top" data-back-to-top>&uarr;</button>
   <div class="toast-region" aria-live="polite" aria-atomic="true" data-toast-region></div>
-  <script type="module" src="js/main.js"></script>
-  <script type="module" src="js/weather.js"></script>
+  <script type="module" src="js/main.js" defer></script>
+  <script type="module" src="js/weather.js" defer></script>
 </body>
 </html>

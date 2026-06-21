@@ -3,10 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About | TechNova</title>
-  <meta name="description" content="Learn about TechNova's story, mission, vision, values, statistics, and team.">
-  <meta name="keywords" content="About TechNova, company story, mission, vision, values, team">
+  <title>About TechNova | Brand Story, Mission, Values & Team</title>
+  <meta name="description" content="Learn about TechNova's story, mission, vision, values, statistics, and team behind the premium electronics marketplace.">
+  <meta name="keywords" content="About TechNova, TechNova story, TechNova mission, TechNova values, TechNova team, electronics marketplace brand">
   <meta name="author" content="TechNova">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://technova-demo.netlify.app/about.html">
+  <meta property="og:title" content="About TechNova | Brand Story, Mission, Values & Team">
+  <meta property="og:description" content="Learn about TechNova's story, mission, vision, values, statistics, and team behind the premium electronics marketplace.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://technova-demo.netlify.app/about.html">
+  <meta property="og:image" content="https://technova-demo.netlify.app/images/hero-placeholder.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="About TechNova | Brand Story, Mission, Values & Team">
+  <meta name="twitter:description" content="Learn about TechNova's story, mission, vision, values, statistics, and team behind the premium electronics marketplace.">
+  <meta name="twitter:image" content="https://technova-demo.netlify.app/images/hero-placeholder.svg">
   <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/style.css">
@@ -16,6 +27,7 @@
   <div class="page-loader" data-loader aria-label="Page loading">
     <span class="loader-ring" aria-hidden="true"></span>
   </div>
+  <a class="skip-link" href="#main-content">Skip to Main Content</a>
 
   <header class="site-header" data-component="site-header">
     <div class="container header__inner">
@@ -65,7 +77,7 @@
     </div>
   </header>
 
-  <main class="page-main">
+  <main class="page-main" id="main-content" tabindex="-1">
     <section class="page-hero section section--tinted" data-section="about-hero">
       <div class="container about-hero__grid">
         <div class="section-heading">
@@ -74,7 +86,7 @@
           <p>TechNova brings premium electronics together in a storefront that feels modern, calm, and ready to scale into future tasks.</p>
         </div>
         <figure class="about-hero__image">
-          <img src="images/hero-placeholder.svg" alt="Editorial-style illustration of the TechNova brand and premium electronic products">
+          <img src="images/hero-placeholder.svg" alt="Editorial-style illustration of the TechNova brand and premium electronic products" width="900" height="760" loading="eager" fetchpriority="high" decoding="async">
         </figure>
       </div>
     </section>
@@ -165,31 +177,35 @@
 
         <div class="card-grid card-grid--testimonials card-grid--team">
           <article class="testimonial-card">
-            <img src="images/team-placeholder.svg" alt="Portrait placeholder for Priya Nair, product director">
+            <img src="images/team-placeholder.svg" alt="Portrait placeholder for Priya Nair, product director" width="240" height="240" loading="lazy" decoding="async">
             <div>
               <h3>Priya Nair</h3>
-              <p>Product Director focused on category strategy, content quality, and catalogue structure.</p>
+              <span class="chip">Product Director</span>
+              <p>Focused on category strategy, content quality, and catalogue structure.</p>
             </div>
           </article>
           <article class="testimonial-card">
-            <img src="images/team-placeholder.svg" alt="Portrait placeholder for Arjun Mehta, design lead">
+            <img src="images/team-placeholder.svg" alt="Portrait placeholder for Arjun Mehta, design lead" width="240" height="240" loading="lazy" decoding="async">
             <div>
               <h3>Arjun Mehta</h3>
-              <p>Design Lead shaping the premium visual language and reusable component system.</p>
+              <span class="chip">Design Lead</span>
+              <p>Shaping the premium visual language and reusable component system.</p>
             </div>
           </article>
           <article class="testimonial-card">
-            <img src="images/team-placeholder.svg" alt="Portrait placeholder for Sarah Thomas, operations manager">
+            <img src="images/team-placeholder.svg" alt="Portrait placeholder for Sarah Thomas, operations manager" width="240" height="240" loading="lazy" decoding="async">
             <div>
               <h3>Sarah Thomas</h3>
-              <p>Operations Manager responsible for service clarity, support pathways, and delivery experience.</p>
+              <span class="chip">Operations Manager</span>
+              <p>Responsible for service clarity, support pathways, and delivery experience.</p>
             </div>
           </article>
           <article class="testimonial-card">
-            <img src="images/team-placeholder.svg" alt="Portrait placeholder for Kabir Siddiqui, retail strategist">
+            <img src="images/team-placeholder.svg" alt="Portrait placeholder for Kabir Siddiqui, retail strategist" width="240" height="240" loading="lazy" decoding="async">
             <div>
               <h3>Kabir Siddiqui</h3>
-              <p>Retail Strategist aligning the UI foundation with future commerce and API plans.</p>
+              <span class="chip">Retail Strategist</span>
+              <p>Aligning the UI foundation with future commerce and API plans.</p>
             </div>
           </article>
         </div>
@@ -252,7 +268,7 @@
 
   <button class="back-to-top" type="button" aria-label="Back to top" data-back-to-top>&uarr;</button>
   <div class="toast-region" aria-live="polite" aria-atomic="true" data-toast-region></div>
-  <script type="module" src="js/main.js"></script>
-  <script type="module" src="js/counter.js"></script>
+  <script type="module" src="js/main.js" defer></script>
+  <script type="module" src="js/counter.js" defer></script>
 </body>
 </html>

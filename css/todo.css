@@ -57,6 +57,7 @@
   background: var(--color-surface);
   box-shadow: var(--color-shadow-soft);
   animation: fade-up 520ms ease both;
+  padding: var(--space-5);
 }
 
 .todo-panel {
@@ -103,8 +104,7 @@
 
 .todo-form,
 .todo-toolbar,
-.todo-actions,
-.todo-filters {
+.todo-actions {
   display: grid;
   gap: var(--space-3);
 }
@@ -130,6 +130,8 @@
 }
 
 .todo-filters {
+  display: grid;
+  gap: var(--space-3);
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
@@ -326,10 +328,6 @@
 .todo-sidebar {
   display: grid;
   gap: var(--space-5);
-}
-
-.todo-note {
-  padding: var(--space-5);
 }
 
 .todo-note__list {
